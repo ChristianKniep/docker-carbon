@@ -19,4 +19,20 @@ ADD     ./etc/supervisord.d/carbon.ini /etc/supervisord.d/
 ADD     ./etc/carbon/c0.conf /etc/carbon/
 ADD     ./etc/carbon/storage-schemas.conf /etc/carbon/storage-schemas.conf
 
+##### USER
+# Set (very simple) password for root
+RUN echo "root:root"|chpasswd
+ADD root/ssh /root/.ssh
+RUN chmod 600 /root/.ssh/authorized_keys
+RUN chmod 600 /root/.ssh/id_rsa
+RUN chmod 644 /root/.ssh/id_rsa.pub
+RUN chown -R root:root /root/*
+
+### SSHD
+RUN yum install -y openssh-server
+RUN mkdir -p /var/run/sshd
+RUN sshd-keygen
+RUN sed -i -e 's/#UseDNS yes/UseDNS no/' /etc/ssh/sshd_config
+ADD etc/supervisord.d/sshd.ini /etc/supervisord.d/sshd.ini
+
 CMD /bin/supervisord -c /etc/supervisord.conf
