@@ -12,8 +12,8 @@ RUN rm -rf /tmp/yum-cache/carboniface
 RUN 	yum install -y python-carbon git-core
 RUN     mkdir -p /var/lib/carbon/{whisper,lists}
 RUN 	chown carbon -R /var/lib/carbon/whisper/
-ADD     ./etc/init.d/carbon-cache /etc/init.d/
-ADD     ./etc/supervisord.d/carbon.ini /etc/supervisord.d/
+ADD     etc/supervisord.d/carbon.ini /etc/supervisord.d/
+ADD     etc/init.d/carbon-cache /etc/init.d/
 
 ## Carbon config
 ADD     ./etc/carbon/c0.conf /etc/carbon/
@@ -35,4 +35,6 @@ RUN sshd-keygen
 RUN sed -i -e 's/#UseDNS yes/UseDNS no/' /etc/ssh/sshd_config
 ADD etc/supervisord.d/sshd.ini /etc/supervisord.d/sshd.ini
 
+VOLUME ["/var/lib/carbon/whisper"]
+EXPOSE [2003, 2004, 7002]
 CMD /bin/supervisord -c /etc/supervisord.conf
