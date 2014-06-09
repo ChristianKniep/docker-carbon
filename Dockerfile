@@ -8,6 +8,9 @@ ADD yum-cache/carboniface /tmp/yum-cache/carboniface
 RUN yum install -y python-docopt /tmp/yum-cache/carboniface/python-carboniface-1.0.3-1.x86_64.rpm
 RUN rm -rf /tmp/yum-cache/carboniface
 
+# remove pyopenssl from qnib/terminal
+RUN yum erase -y python-pyopenssl
+
 # carbon
 RUN 	yum install -y python-carbon git-core
 RUN     mkdir -p /var/lib/carbon/{whisper,lists}
