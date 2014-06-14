@@ -36,6 +36,7 @@ RUN mkdir -p /var/run/sshd
 RUN sshd-keygen
 RUN sed -i -e 's/#UseDNS yes/UseDNS no/' /etc/ssh/sshd_config
 ADD etc/supervisord.d/sshd.ini /etc/supervisord.d/sshd.ini
+RUN touch  /etc/carbon/storage-aggregation.conf 
 
 VOLUME ["/var/lib/carbon/whisper"]
 EXPOSE 2003
