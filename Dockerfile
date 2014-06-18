@@ -16,6 +16,7 @@ ADD     etc/supervisord.d/carbon.ini /etc/supervisord.d/
 ADD     ./etc/carbon/c0.conf /etc/carbon/
 ADD     ./etc/carbon/storage-schemas.conf /etc/carbon/storage-schemas.conf
 RUN     touch /etc/carbon/aggregation-rules.conf
+RUN     touch /etc/carbon/storage-aggregation.conf
 
 VOLUME ["/var/lib/carbon/whisper"]
 EXPOSE 2003
