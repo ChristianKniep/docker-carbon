@@ -22,4 +22,7 @@ ADD     ./etc/carbon/storage-schemas.conf /etc/carbon/storage-schemas.conf
 RUN     touch /etc/carbon/aggregation-rules.conf
 RUN     touch /etc/carbon/storage-aggregation.conf
 
+EXPOSE 2003
+EXPOSE 7002
+
 CMD /bin/supervisord -c /etc/supervisord.conf
