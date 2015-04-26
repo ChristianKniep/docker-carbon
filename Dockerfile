@@ -2,12 +2,10 @@
 # runs slurmd, sshd and is able to execute jobs via mpi
 FROM qnib/terminal
 MAINTAINER "Christian Kniep <christian@qnib.org>"
-
-EXPOSE 2003
-EXPOSE 7002
-
+#
+VOLUME "/var/lib/carbon/whisper/"
 # carbon
-RUN 	yum install -y python-carbon git-core
+RUN 	yum install -y python-carbon 
 RUN     mkdir -p /var/lib/carbon/{whisper,lists}
 RUN 	chown carbon -R /var/lib/carbon/whisper/
 ADD     etc/supervisord.d/c0.ini /etc/supervisord.d/
@@ -23,4 +21,7 @@ ADD     ./etc/carbon/storage-schemas.conf /etc/carbon/storage-schemas.conf
 RUN     touch /etc/carbon/aggregation-rules.conf
 RUN     touch /etc/carbon/storage-aggregation.conf
 
-CMD /bin/supervisord -c /etc/supervisord.conf
+#ADD etc/consul.d/check_carbon.json /etc/consul.d/
+ADD etc/consul.d/check_r0.json /etc/consul.d/
+
+
