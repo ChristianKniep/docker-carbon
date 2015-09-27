@@ -1,9 +1,9 @@
-###### QNIBTerminal instance
+###### QNIBTerminal Image
 FROM qnib/terminal
 
 VOLUME "/var/lib/carbon/whisper/"
-# carbon
-RUN 	echo 2015-05-30 && yum clean all && \
+
+RUN echo 2015-05-30 && yum clean all && \
         yum install -y python-carbon && \
         mkdir -p /var/lib/carbon/{whisper,lists} && \
     	chown carbon -R /var/lib/carbon/whisper/ && \
