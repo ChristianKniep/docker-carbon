@@ -10,7 +10,7 @@
       "checks": [
         {
           "script": "nmap 127.0.0.1 -PN -p 2103 | grep open",
-          "interval": "10s",
+          "interval": "10s"
         }
       ]
     },
@@ -24,21 +24,19 @@
       "checks": [
         {
           "script": "nmap 127.0.0.1 -PN -p 2113 | grep open",
-          "interval": "10s",
+          "interval": "10s"
         }
       ]
     },
     {
       "id": "r0",
       "name": "carbon",
-      "tags": [
-        "relay0", "entry"
-      ],
+      "tags": [ "relay0" ],
       "port": 2003,
       "checks": [
         {
           "script": "nmap 127.0.0.1 -PN -p 2003 | grep open",
-          "interval": "10s",
+          "interval": "10s"
         }
       ]
     }

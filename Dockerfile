@@ -1,8 +1,6 @@
-###### compute node
-# runs slurmd, sshd and is able to execute jobs via mpi
-FROM qnib/terminal:light
-MAINTAINER "Christian Kniep <christian@qnib.org>"
-#
+###### QNIBTerminal instance
+FROM qnib/terminal
+
 VOLUME "/var/lib/carbon/whisper/"
 # carbon
 RUN 	echo 2015-05-30 && yum clean all && \
@@ -17,7 +15,6 @@ ADD     etc/supervisord.d/ /etc/supervisord.d/
 ## Carbon config
 ADD     ./etc/carbon/ /etc/carbon/
 
-#ADD etc/consul.d/check_carbon.json /etc/consul.d/
-ADD etc/consul.d/check_r0.json /etc/consul.d/
+ADD etc/consul.d/carbon.json /etc/consul.d/
 
-
+ADD opt/qnib/carbon/bin/start_relay.sh /opt/qnib/carbon/bin/
