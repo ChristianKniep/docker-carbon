@@ -31,7 +31,7 @@
     {
       "id": "r0",
       "name": "carbon",
-      "tags": [ "store" ],
+      "tags": [ "storeage", "relay" ],
       "port": 2003,
       "checks": [
         {
