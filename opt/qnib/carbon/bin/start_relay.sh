@@ -14,7 +14,7 @@ trap stop_carbon SIGTERM
 
 ##### If CARBON_METRICS_ENTRY != false the carbon relay also propagates itself as entry.carbon.service.consul
 if [ "X${CARBON_METRICS_ENTRY" != "Xfalse" ];then
-     sed -i  -e 's/"tags":.*relay0.*/"tags": [ "relay", "entry" ],/' /etc/consul.d/carbon.json
+     sed -i  -e 's/"tags":.*storage.*/"tags": [ "storage", "entry" ],/' /etc/consul.d/carbon.json
 fi
 
 /usr/bin/python /bin/carbon-relay --instance=${INST_NAME} --conf=/etc/carbon/${INST_NAME}.conf --pidfile=${MYPID} --debug start
