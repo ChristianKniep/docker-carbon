@@ -3,7 +3,8 @@ FROM qnib/terminal
 
 VOLUME "/var/lib/carbon/whisper/"
 
-RUN pip install carbon
+RUN pip install carbon \
+        whisper
 RUN mkdir -p /var/lib/carbon/{whisper,lists} /etc/carbon/ && \
     touch /etc/carbon/aggregation-rules.conf && \
     touch /etc/carbon/storage-aggregation.conf
