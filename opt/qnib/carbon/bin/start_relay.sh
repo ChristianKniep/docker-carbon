@@ -18,4 +18,4 @@ if [ "X${CARBON_METRICS_ENTRY" != "Xfalse" ];then
      consul reload
 fi
 
-/usr/bin/python /bin/carbon-relay --instance=${INST_NAME} --conf=/etc/carbon/${INST_NAME}.conf --pidfile=${MYPID} --debug start
+/usr/bin/python /opt/graphite/bin/carbon-relay.py --instance=${INST_NAME} --conf=/etc/carbon/${INST_NAME}.conf --pidfile=${MYPID} --debug start
