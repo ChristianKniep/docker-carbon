@@ -4,8 +4,11 @@ consul:
    - "8500:8500"
   environment:
   - DC_NAME=dc1
+  - RUN_SERVER=true
+  - BOOTSTRAP_CONSUL=true
   dns: 127.0.0.1
   hostname: consul
+  container_name: consul
   privileged: true
 
 carbon:
@@ -18,4 +21,5 @@ carbon:
   - CNT_TYPE=service
   dns: 127.0.0.1
   hostname: carbon
+  container_name: carbon
 
