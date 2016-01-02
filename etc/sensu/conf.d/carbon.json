@@ -1,0 +1,9 @@
+{
+  "checks": {
+    "carbon": {
+      "command": "/opt/qnib/carbon/bin/check.sh",
+      "standalone": true,
+      "interval": 10
+    }
+  }
+}

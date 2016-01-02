@@ -9,7 +9,7 @@
       "port": 2103,
       "checks": [
         {
-          "script": "nmap 127.0.0.1 -PN -p 2103 | grep open",
+          "script": "/opt/qnib/carbon/bin/check.sh 2103",
           "interval": "10s"
         }
       ]
@@ -23,7 +23,7 @@
       "port": 2113,
       "checks": [
         {
-          "script": "nmap 127.0.0.1 -PN -p 2113 | grep open",
+          "script": "/opt/qnib/carbon/bin/check.sh 2113",
           "interval": "10s"
         }
       ]
@@ -35,7 +35,7 @@
       "port": 2003,
       "checks": [
         {
-          "script": "nmap 127.0.0.1 -PN -p 2003 | grep open",
+          "script": "/opt/qnib/carbon/bin/check.sh 2003",
           "interval": "10s"
         }
       ]

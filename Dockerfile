@@ -14,4 +14,8 @@ ADD etc/supervisord.d/ /etc/supervisord.d/
 ADD     ./etc/carbon/ /etc/carbon/
 
 ADD etc/consul.d/carbon.json /etc/consul.d/
-ADD opt/qnib/carbon/bin/start_relay.sh /opt/qnib/carbon/bin/
+ADD opt/qnib/carbon/bin/start.sh /opt/qnib/carbon/bin/
+## Generic check script
+ADD opt/qnib/carbon/bin/check.sh /opt/qnib/carbon/bin/
+## Sensu config
+

@@ -4,15 +4,14 @@ consul:
    - "8500:8500"
   environment:
   - DC_NAME=dc1
-  - RUN_SERVER=true
-  - BOOTSTRAP_CONSUL=true
+  - CONSUL_BOOTSTRAP=true
   dns: 127.0.0.1
   hostname: consul
   container_name: consul
   privileged: true
 
 carbon:
-  build: .
+  image: qnib/carbon:sensu
   ports: 
   - "2003:2003"
   environment:
