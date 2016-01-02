@@ -1,5 +1,5 @@
 ###### QNIBTerminal Image
-FROM qnib/terminal
+FROM qnib/terminal:sensu
 
 RUN echo "2015-11-11.1" && \
     pip install carbon \
