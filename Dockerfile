@@ -18,4 +18,4 @@ ADD opt/qnib/carbon/bin/start.sh /opt/qnib/carbon/bin/
 ## Generic check script
 ADD opt/qnib/carbon/bin/check.sh /opt/qnib/carbon/bin/
 ## Sensu config
-
+ADD etc/sensu/conf.d/carbon.json /etc/sensu/conf.d/
